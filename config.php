@@ -5,6 +5,7 @@ Restrict usage to PHP7, defines the autoload function and sets user's settings.
 */
 
 declare(strict_types = 1);
+
 if (phpversion() < 7) {
     throw new Exception(
         "You need PHP 7+ to run this script. Please, upgrade your PHP version."
