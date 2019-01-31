@@ -17,5 +17,4 @@ $autoload = function($class) {
 };
 spl_autoload_register($autoload);
 
-
 $settings = parse_ini_file('settings.ini');
