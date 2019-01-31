@@ -13,7 +13,7 @@ abstract class BinanceUtils
     private $secretKey;
     
     /*
-    * @param int    $recvWindow  Max life for the API request in miliseconds.
+    * @param int    $recvWindow  Max life for the API request in milliseconds.
     *                            According to the Binance API documetation, 
     *                            defaults to 5000.  After the $recvWindow 
     *                            is exceeded, the API will reject the request.
@@ -29,10 +29,9 @@ abstract class BinanceUtils
     
     /*
     * @param   array    $data     Data to be signed with the secret key.
-    * @param   string   $method   The HTTP request method
     * @returns array              The signed data + an added element 'signature'
     */
-    protected function sign(array $data, string $method = "GET"): array
+    protected function sign(array $data): array
     {
         $data_str = http_build_query($data);
         $signature = hash_hmac("sha256", $data_str, $this->secretKey);

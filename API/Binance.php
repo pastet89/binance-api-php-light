@@ -7,7 +7,7 @@ class Binance extends BinanceUtils
 {
 
     /*
-    * Constructs the parent abstract class. For the function params, check the docstring
+    * Constructs the parent abstract class. For the function parameters, check the docstring
     * of __contruct() in the BinanceUtils class.
     */    
     public function __construct(...$args)
@@ -31,6 +31,7 @@ class Binance extends BinanceUtils
     }
     
     /*
+    * @throws BinanceError
     * @param   string $currency        The base (first) currency of the market pair
     * @param   array  $quoteAsset      The quote (second) currency of the market pair
     * @param   int    $limit           The number of trades to be returned (1 to 1000)
@@ -87,7 +88,7 @@ class Binance extends BinanceUtils
     * @param   float        $quantity       Amount of the currency we want to sell or buy
     * @param   string       $currency       The base (first) currency of the market pair
     * @param   float        $price          The price (valid only if $marketPrice === false)
-    * @param   bool         $marketPrice    Wheter to execute the order at market price
+    * @param   bool         $marketPrice    Whether to execute the order at market price
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
     * @returns array                        Array with placed order data
     */
@@ -149,13 +150,13 @@ class Binance extends BinanceUtils
     * @param   int          $orderId        The order id
     * @param   string       $currency       The base (first) currency of the market pair
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
-    * @param   string       $method         The http request method
+    * @param   string       $method         The HTTP request method
     * @returns array                        The API response array
     */
     private function manageOrder(int $orderId,
-                                     string $currency, 
-                                     string $quoteAsset="BTC", 
-                                     string $method): array
+                                 string $currency, 
+                                 string $quoteAsset="BTC", 
+                                 string $method): array
     {
         $url = self::BASE_URL . "/v3/order?";
         $data = [
