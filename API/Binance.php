@@ -20,7 +20,8 @@ class Binance extends BinanceUtils
     * @param string  $quoteAsset     The quote (second) currency of the market pair
     * @returns array                 Array with the order book entries
     */
-    public static function getOrderBook(string $currency, string $quoteAsset = "BTC"): array
+    public static function getOrderBook(string $currency,
+                                        string $quoteAsset = "BTC"): array
     {
         $data = [
             "symbol" => $currency . $quoteAsset
@@ -77,8 +78,10 @@ class Binance extends BinanceUtils
         $account = $this->APIRequest($url);
         $balances = $account['balances'];
         foreach ((array) $balances as $balance) {
-            yield ["asset" => $balance['asset'],
-                   "balance" => $balance['free']];
+            yield [
+                "asset" => $balance['asset'],
+                "balance" => $balance['free']
+            ];
         }
     }
 
