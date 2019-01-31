@@ -1,6 +1,6 @@
-# Basic Airbnb.com home listings scraper
+# Binance API PHP7 light library
 
-PHP script handling the most essential calls to the Binance API.
+Light PHP7-based library for handling the most essential Binance API calls.
 Binance is one of the biggest cryptocurrency exchanges.
 
 ## Requirements:
