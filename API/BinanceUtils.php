@@ -29,7 +29,7 @@ abstract class BinanceUtils
     
     /*
     * @param   array    $data     Data to be signed with the secret key.
-    * @returns array              The signed data + an added element 'signature'
+    * @return array               The signed data + an added element 'signature'
     */
     protected function sign(array $data): array
     {
@@ -42,7 +42,7 @@ abstract class BinanceUtils
     /*
     * @param   array   $data   The data, if any, to which will be added the time markers:
     *                          timestamp and recvWindow.
-    * @returns array           The result array, to which has been added the time markers.
+    * @return array            The result array, to which has been added the time markers.
     */
     protected function timeMarkers(array $data = []): array
     {
@@ -60,7 +60,7 @@ abstract class BinanceUtils
     * @param array  $data            The data, if any, to be included in the request.
     * @param string $method          The HTTP request method
     * @param bool   $includeAPIKey   Whether to include the API key in the request.
-    * @returns array                 The parsed associative array from the JSON response
+    * @return array                  The parsed associative array from the JSON response
     */
     protected function APIRequest(string $url,
                                   array $data = [],
@@ -101,7 +101,7 @@ abstract class BinanceUtils
     /*
     * @throws BinanceError
     * @param   array   $json  The API response parsed JSON array to be checked for errors.
-    * @returns array          The verified array.
+    * @return array           The verified array.
     */    
     private function verifyResponse(array $json): array
     {

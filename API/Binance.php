@@ -18,7 +18,7 @@ class Binance extends BinanceUtils
     /*
     * @param string  $currency       The base (first) currency of the market pair
     * @param string  $quoteAsset     The quote (second) currency of the market pair
-    * @returns array                 Array with the order book entries
+    * @return array                  Array with the order book entries
     */
     public static function getOrderBook(string $currency,
                                         string $quoteAsset = "BTC"): array
@@ -36,7 +36,7 @@ class Binance extends BinanceUtils
     * @param   string $currency        The base (first) currency of the market pair
     * @param   array  $quoteAsset      The quote (second) currency of the market pair
     * @param   int    $limit           The number of trades to be returned (1 to 1000)
-    * @returns array                   Array with the historical trades
+    * @return array                    Array with the historical trades
     */
     public static function historicalTrades(string $currency, 
                                             string $quoteAsset,
@@ -56,7 +56,7 @@ class Binance extends BinanceUtils
     /*
     * @throws BinanceError
     * @param   string $targetAsset     The requested currency
-    * @returns float                   The balance of the requested currency
+    * @return float                    The balance of the requested currency
     */
     public function getBalance(string $targetAsset = "BTC"): float
     {
@@ -69,7 +69,7 @@ class Binance extends BinanceUtils
     }
 
     /*
-    * @yields array                  The balance data for all currencies
+    * @yield array                  The balance data for all currencies
     */
     public function getBalances(): iterable
     {
@@ -93,7 +93,7 @@ class Binance extends BinanceUtils
     * @param   float        $price          The price (valid only if $marketPrice === false)
     * @param   bool         $marketPrice    Whether to execute the order at market price
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
-    * @returns array                        Array with placed order data
+    * @return array                         Array with placed order data
     */
     public function placeOrder(string $buyOrSell,
                                float $quantity,
@@ -131,7 +131,7 @@ class Binance extends BinanceUtils
     * @param   int          $orderId        The order id
     * @param   string       $currency       The base (first) currency of the market pair
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
-    * @returns array                        The API response
+    * @return array                         The API response
     */
     public function orderStatus(int $orderId, string $currency, string $quoteAsset="BTC"): array
     {
@@ -142,7 +142,7 @@ class Binance extends BinanceUtils
     * @param   int          $orderId        The order id
     * @param   string       $currency       The base (first) currency of the market pair
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
-    * @returns array                        The API response
+    * @return array                         The API response
     */
     public function cancelOrder(int $orderId, string $currency, string $quoteAsset="BTC"): array
     {
@@ -154,7 +154,7 @@ class Binance extends BinanceUtils
     * @param   string       $currency       The base (first) currency of the market pair
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
     * @param   string       $method         The HTTP request method
-    * @returns array                        The API response array
+    * @return array                         The API response array
     */
     private function manageOrder(int $orderId,
                                  string $currency, 
