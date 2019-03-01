@@ -24,4 +24,15 @@ consider incrementing the value of this variable.
 
 ## Usage:
 
+Run the code in a PHP7 environment.
+
 Please refer to the sample API calls in ```examples.php```.
+
+Alternatively, you can run it in a docker container by using the docker
+setup files in ```docker/```. In order to do this you will need to have
+installed ```docker-compose```. To run the code in a container,
+simply run from the ```docker/``` folder: 
+```
+docker-compose pull
+docker-compose up
+```

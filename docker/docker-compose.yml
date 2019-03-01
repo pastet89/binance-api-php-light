@@ -1,0 +1,19 @@
+version: '3.3'
+services:  
+  webserver:
+    build:
+      context: ./
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ../:/usr/share/nginx/www
+      - ./site.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php
+  php:
+    build:
+      context: ./
+    image: php:7-fpm
+    volumes:
+      - ../:/usr/share/nginx/www
