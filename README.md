@@ -30,7 +30,7 @@ Please refer to the sample API calls in ```examples.php```.
 
 Alternatively, you can run the code in a docker container by using the docker
 setup files in ```docker/```. In order to do this you will need to have
-installed ```docker-compose```. To run the code in a container,
+installed [docker-compose](https://docs.docker.com/compose/install/). To run the code in a container,
 simply run from the ```docker/``` folder: 
 ```
 docker-compose pull
