@@ -1,8 +1,6 @@
 version: '3.3'
 services:  
   webserver:
-    build:
-      context: ./
     image: nginx:latest
     ports:
       - "8080:80"
@@ -12,8 +10,6 @@ services:
     links:
       - php
   php:
-    build:
-      context: ./
     image: php:7-fpm
     volumes:
       - ../:/usr/share/nginx/www
