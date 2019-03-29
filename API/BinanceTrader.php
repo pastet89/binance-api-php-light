@@ -3,12 +3,12 @@
 namespace API;
 use API\Exception\BinanceError;
 
-class Binance extends BinanceUtils
+class BinanceTrader extends BinanceCore
 {
 
     /*
     * Constructs the parent abstract class. For the function parameters, check the docstring
-    * of __contruct() in the BinanceUtils class.
+    * of __contruct() in the BinanceCore class.
     */    
     public function __construct(...$args)
     {   

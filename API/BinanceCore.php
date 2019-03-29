@@ -4,7 +4,7 @@ namespace API;
 use API\Exception\BinanceError;
 
 
-abstract class BinanceUtils
+abstract class BinanceCore
 {
 
     const BASE_URL = "https://api.binance.com/api";

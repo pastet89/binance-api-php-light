@@ -1,6 +1,6 @@
 # Binance API PHP7 light library
 
-Light PHP7-based library for handling the most essential Binance API calls.
+PHP7-based library for handling the most essential Binance API calls.
 Binance is one of the biggest cryptocurrency exchanges.
 
 ## Requirements:

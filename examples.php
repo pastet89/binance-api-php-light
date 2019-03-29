@@ -1,7 +1,7 @@
 <?php
 
 require 'config.php';
-use API\Binance;
+use API\BinanceTrader;
 
 /*
 * I. Static methods (can be executed also as instance methods):
@@ -10,11 +10,12 @@ use API\Binance;
 
 # 1. Order book
 
-$orderBook = Binance::getOrderBook("ETH", "BTC");
+$orderBook = BinanceTrader::getOrderBook("ETH", "BTC");
+
 
 # 2. Historical trades
 
-$historicalTrades = Binance::historicalTrades("ETH", "BTC");
+$historicalTrades = BinanceTrader::historicalTrades("ETH", "BTC");
 
 
 /*
@@ -22,7 +23,7 @@ $historicalTrades = Binance::historicalTrades("ETH", "BTC");
 * require API keys.
 */
 
-$binance = new Binance($settings['recvWindow'],
+$binance = new BinanceTrader($settings['recvWindow'],
                        $settings['apiKey'],
                        $settings['secretKey']);
 
