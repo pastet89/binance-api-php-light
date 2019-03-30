@@ -1,12 +1,11 @@
 <?php
 
 namespace API;
-use API\Exception\BinanceError;
 
+use API\Exception\BinanceError;
 
 abstract class BinanceCore
 {
-
     const BASE_URL = "https://api.binance.com/api";
     private $recvWindow;
     private $apiKey;
@@ -62,12 +61,12 @@ abstract class BinanceCore
     * @param bool   $includeAPIKey   Whether to include the API key in the request.
     * @return array                  The parsed associative array from the JSON response
     */
-    protected function APIRequest(string $url,
-                                  array $data = [],
-                                  string $method = "GET",
-                                  bool $includeAPIKey = true
-                               ): array
-    {
+    protected function APIRequest(
+        string $url,
+        array $data = [],
+        string $method = "GET",
+        bool $includeAPIKey = true
+    ): array {
         $acceptedMethods = ["POST", "GET", "DELETE"];
         if(!in_array($method, $acceptedMethods)) {
             throw new BinanceError(
@@ -105,12 +104,11 @@ abstract class BinanceCore
     */    
     private function verifyResponse(array $json): array
     {
-        if ($json['msg'] != NULL) {
+        if ($json['msg'] != null) {
             throw new BinanceError(
                 "API response error: " . $json['msg']
             );
         }
         return $json;
     }
-
 }

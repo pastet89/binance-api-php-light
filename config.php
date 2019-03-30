@@ -12,7 +12,7 @@ if (phpversion() < 7) {
     );
 }
 
-$autoload = function($class) {
+$autoload = function ($class) {
     $file = __DIR__ . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class);
     require_once $file . '.php';
 };

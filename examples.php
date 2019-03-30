@@ -1,6 +1,7 @@
 <?php
 
 require 'config.php';
+
 use API\BinanceTrader;
 
 /*
@@ -23,9 +24,11 @@ $historicalTrades = BinanceTrader::historicalTrades("ETH", "BTC");
 * require API keys.
 */
 
-$binance = new BinanceTrader($settings['recvWindow'],
-                       $settings['apiKey'],
-                       $settings['secretKey']);
+$binance = new BinanceTrader(
+    $settings['recvWindow'],
+    $settings['apiKey'],
+    $settings['secretKey']
+);
 
 
 # 1. Get the free available balance for a specific currency

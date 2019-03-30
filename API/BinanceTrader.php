@@ -1,11 +1,11 @@
 <?php
 
 namespace API;
+
 use API\Exception\BinanceError;
 
 class BinanceTrader extends BinanceCore
 {
-
     /*
     * Constructs the parent abstract class. For the function parameters, check the docstring
     * of __contruct() in the BinanceCore class.
@@ -20,9 +20,10 @@ class BinanceTrader extends BinanceCore
     * @param string  $quoteAsset     The quote (second) currency of the market pair
     * @return array                  Array with the order book entries
     */
-    public static function getOrderBook(string $currency,
-                                        string $quoteAsset = "BTC"): array
-    {
+    public static function getOrderBook(
+        string $currency,
+        string $quoteAsset = "BTC"
+    ): array {
         $data = [
             "symbol" => $currency . $quoteAsset
         ];
@@ -38,10 +39,10 @@ class BinanceTrader extends BinanceCore
     * @param   int    $limit           The number of trades to be returned (1 to 1000)
     * @return array                    Array with the historical trades
     */
-    public static function historicalTrades(string $currency, 
-                                            string $quoteAsset,
-                                            int $limit = 500): array
-    {
+    public static function historicalTrades(
+        string $currency, 
+        string $quoteAsset,
+        int $limit = 500): array {
         if (!is_numeric($limit) or $limit > 1000 or $limit < 0) {
             throw new BinanceError("The acceptable limit range is from 1 to 1000.");
         }
@@ -95,13 +96,14 @@ class BinanceTrader extends BinanceCore
     * @param   string       $quoteAsset     The quote (second) currency of the market pair
     * @return array                         Array with placed order data
     */
-    public function placeOrder(string $buyOrSell,
-                               float $quantity,
-                               string $currency,
-                               float $price,
-                               bool $marketPrice = false,
-                               string $quoteAsset="BTC"): array
-    {
+    public function placeOrder(
+        string $buyOrSell,
+        float $quantity,
+        string $currency,
+        float $price,
+        bool $marketPrice = false,
+        string $quoteAsset="BTC"
+    ): array {
         $url = self::BASE_URL . "/v3/order?";
         $symbol = $currency . $quoteAsset;
         $price = number_format($price, 8);
@@ -156,11 +158,12 @@ class BinanceTrader extends BinanceCore
     * @param   string       $method         The HTTP request method
     * @return array                         The API response array
     */
-    private function manageOrder(int $orderId,
-                                 string $currency, 
-                                 string $quoteAsset="BTC", 
-                                 string $method): array
-    {
+    private function manageOrder(
+        int $orderId,
+        string $currency, 
+        string $quoteAsset="BTC", 
+        string $method
+    ): array {
         $url = self::BASE_URL . "/v3/order?";
         $data = [
             "symbol" => $currency . $quoteAsset,
@@ -168,8 +171,5 @@ class BinanceTrader extends BinanceCore
         ];
         $url .= http_build_query($this->sign($this->timeMarkers($data)));
         return $this->APIRequest($url, [], $method);
-    }  
-
+    }
 }
-
-
