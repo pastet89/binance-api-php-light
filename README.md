@@ -1,4 +1,4 @@
-# Binance API PHP7 light library
+# Binance API PHP7 light library with a Docker container
 
 PHP7-based library for handling the most essential Binance API calls.
 Binance is one of the biggest cryptocurrency exchanges.
@@ -28,10 +28,10 @@ Run the code in a PHP7 environment.
 
 Please refer to the sample API calls in ```examples.php```.
 
-Alternatively, you can run the code in a docker container by using the docker
+Alternatively, you can run the code in a docker container by using the Docker
 setup files in ```docker/```. In order to do this you will need to have
-installed [docker-compose](https://docs.docker.com/compose/install/). To run the code in a container,
-simply run from the ```docker/``` folder: 
+installed [docker-compose](https://docs.docker.com/compose/install/). To run the code in a container
+using Nginx, simply run from the ```docker/``` folder: 
 ```
 docker-compose pull
 docker-compose up
