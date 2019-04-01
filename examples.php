@@ -37,18 +37,20 @@ $balance = $binance->getBalance("ETH");
 
 # 2. Get all available balances
 
-
 foreach ($binance->getBalances() as $balance) {
     print_r($balance);
 }
+
 
 # 3. Place an order: buy ETH with BTC
 
 $newOrder = $binance->placeOrder("BUY", 1.55, "ETH", 0.04);
 
+
 # 4. Get order status using order id and a currency pair
 
 $status = $binance->orderStatus(123456, "XRP", "ETH");
+
 
 # 5. Cancel an order using order id and a currency pair
 

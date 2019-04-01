@@ -30,7 +30,7 @@ abstract class BinanceCore
     * @param   array    $data     Data to be signed with the secret key.
     * @return array               The signed data + an added element 'signature'
     */
-    protected function sign(array $data): array
+    final protected function sign(array $data): array
     {
         $data_str = http_build_query($data);
         $signature = hash_hmac("sha256", $data_str, $this->secretKey);
@@ -43,7 +43,7 @@ abstract class BinanceCore
     *                          timestamp and recvWindow.
     * @return array            The result array, to which has been added the time markers.
     */
-    protected function timeMarkers(array $data = []): array
+    final protected function timeMarkers(array $data = []): array
     {
         $timestamp = round(microtime(true) * 1000);
         $timeData = [
@@ -61,7 +61,7 @@ abstract class BinanceCore
     * @param bool   $includeAPIKey   Whether to include the API key in the request.
     * @return array                  The parsed associative array from the JSON response
     */
-    protected function APIRequest(
+    final protected function APIRequest(
         string $url,
         array $data = [],
         string $method = "GET",
@@ -102,9 +102,9 @@ abstract class BinanceCore
     * @param   array   $json  The API response parsed JSON array to be checked for errors.
     * @return array           The verified array.
     */    
-    private function verifyResponse(array $json): array
+    final private function verifyResponse(array $json): array
     {
-        if ($json['msg'] != null) {
+        if (array_key_exists('msg', $json) and $json['msg'] != null) {
             throw new BinanceError(
                 "API response error: " . $json['msg']
             );
