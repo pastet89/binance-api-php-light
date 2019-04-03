@@ -1,6 +1,7 @@
 <?php
 
 require 'config.php';
+require 'autoload.php';
 
 use API\BinanceTrader;
 
@@ -12,7 +13,6 @@ use API\BinanceTrader;
 # 1. Order book
 
 $orderBook = BinanceTrader::getOrderBook("ETH", "BTC");
-
 
 # 2. Historical trades
 
