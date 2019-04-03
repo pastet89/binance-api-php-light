@@ -3,9 +3,11 @@
 PHP7-based library for handling the most essential Binance API calls.
 Binance is one of the biggest cryptocurrency exchanges.
 
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg?style=flat-square)](https://php.net/)
+
 ## Requirements:
 
-* PHP 7+
+* PHP 7.2+
 * NTP (Network Time Protocol Server)
 
 ## Installation:
