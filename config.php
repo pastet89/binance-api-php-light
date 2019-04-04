@@ -1,7 +1,7 @@
 <?php
 
 /*
-Restrict usage to PHP7, defines the autoload function and sets user's settings.
+* Restrict usage to PHP7, parse user's settings.
 */
 
 declare(strict_types = 1);
